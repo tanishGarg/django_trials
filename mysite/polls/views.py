@@ -1,6 +1,6 @@
 #Views: "Type" of webpage in your django application
 #In our POLL Applicaation- Question "index" page > dislplays latest few ques ; Question "detail" page > ques text no result but with a form of vote; Vote action; Question "result" page
-# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 from django.shortcuts import render, get_object_or_404
 from django.template import loader
@@ -10,7 +10,8 @@ from django.urls import reverse
 from django.views import generic
 
 #Create Views here
-'''def index(request):
+'''
+def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     #output = ', '.join([q.question_text for q in latest_question_list])
     #return HttpResponse(output)
@@ -45,7 +46,7 @@ class ResultsView(generic.DetailView):
     template_name = 'polls/results.html'
 
 def vote(request, question_id):
-    #return HttpResponse("you're voting the question %s." % question_id)
+    '''return HttpResponse("you're voting the question %s." % question_id)'''
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
